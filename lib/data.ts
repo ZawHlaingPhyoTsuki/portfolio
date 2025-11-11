@@ -1,8 +1,8 @@
 import React from "react";
-import { LuGraduationCap } from "react-icons/lu";
+import { LuGraduationCap, LuBriefcase } from "react-icons/lu";
 import Ecommerce1 from "@/public/e-commence.png";
-import FoodDel from "@/public/food-del.png"
-import Portfolio from "@/public/Portfolio.png"
+import FoodDel from "@/public/food-del.png";
+import Portfolio from "@/public/Portfolio.png";
 
 export const links = [
   {
@@ -37,8 +37,16 @@ export const experiencesData = [
     location: "Kasem Bundit University, Bangkok, Thailand",
     description:
       "Pursuing a bachelor's degree with a focus on digital technology innovation, building foundational skills in software development, digital systems, and technology trends.",
-    icon: React.createElement(LuGraduationCap), 
+    icon: React.createElement(LuGraduationCap),
     date: "April 2024 - Present",
+  },
+  {
+    title: "Backend Developer - Utility Management System",
+    location: "One Project One Month · Remote",
+    description:
+      "Developed backend services for a Utility Management System using Express.js and Prisma. Led the authentication module implementation, created comprehensive Swagger documentation for all API endpoints, and conducted code reviews to maintain code quality. Collaborated with team members to troubleshoot and resolve technical challenges in their modules.",
+    icon: React.createElement(LuBriefcase),
+    date: "November 2025 - Present",
   },
 ] as const;
 
@@ -89,22 +97,53 @@ export const projectsData = [
   },
 ] as const;
 
-
-
-export const skillsData = [
-  "HTML",
-  "CSS",
-  "JavaScript",
+export const languageSkillsData = [
   "TypeScript",
+  "JavaScript",
+  "Java",
+  "PHP",
+  "Python",
+  "HTML5",
+  "CSS3",
+] as const;
+
+export const frameworkSkillsData = [
   "React",
   "Next.js",
-  "Node.js",
-  "Git",
-  "Tailwind",
-  "MongoDB",
+  "NestJS",
   "Express",
-  "Python",
-  "Framer Motion",
+  "Spring Boot",
+  "Laravel",
+  "TailwindCSS",
+] as const;
+
+export const toolsAndLibrariesData = [
   "Prisma",
-  "PostgreSQL"
+  "Drizzle",
+  "Mongoose",
+  "PostgreSQL",
+  "MySQL",
+  "MongoDB",
+  "SQLite",
+  "Node.js",
+  "Bun",
+  "Git",
+  "Docker",
+  "Shadcn UI",
+  "Jest",
+  "Vitest",
+  "React Testing Library",
+  "Swagger",
+  "GraphQL",
+  "Apollo",
+  "Redux Toolkit",
+  "RTK Query",
+  "Zustand",
+  "TanStack Query",
+  "TanStack Form",
+  "React Hook Form",
+  "Zod",
+  "BetterAuth",
+  "Auth.js",
+  "Turborepo",
 ] as const;

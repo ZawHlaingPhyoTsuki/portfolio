@@ -19,35 +19,37 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        I'm a motivated and budding{" "}
-        <span className="font-medium">full-stack developer</span>with a strong
-        foundation in both front-end and back-end technologies. My skills
-        include
-        <span className="font-medium">
-          {" "}
-          HTML, CSS, JavaScript, TypeScript,{" "}
-        </span>
-        <span className="italic">frameworks </span>like{" "}
-        <span className="font-medium">React and Next.js,</span> which allow me
-        to build <span className="underline">responsive</span> and{" "}
-        <span className="underline">dynamic</span> web applications. On the
-        backend, I’m comfortable working with{" "}
-        <span className="font-medium">Node.js</span> and{" "}
-        <span className="font-medium">Express </span>
-        to create <span className="underline">efficient</span> and{" "}
-        <span className="underline">scalable</span> server-side applications. My
-        knowledge of <span className="font-medium">MongoDB</span> enables me to
-        manage data effectively, and I also use tools like{" "}
-        <span className="font-medium">Git</span> and
-        <span className="font-medium"> Tailwind</span> to streamline my workflow
-        and enhance my designs.
+        I'm a passionate{" "}
+        <span className="font-bold">full-stack developer</span> currently
+        studying{" "}
+        <span className="font-bold">Digital Technologies Innovation</span> at{" "}
+        <span className="font-bold">Kasem Bundit University, Bangkok</span>. I
+        specialize in modern web technologies including{" "}
+        <span className="font-bold">TypeScript, React, Next.js, NestJS,</span>{" "}
+        and <span className="font-bold">PostgreSQL</span>.
+      </p>
+
+      <p className="mb-3">
+        I'm actively contributing to{" "}
+        <span className="font-bold">community-driven projects</span> through{" "}
+        <span className="font-bold">"One Project One Month"</span>, where I
+        develop backend systems for a{" "}
+        <span className="underline">Utility Management System </span>
+        and collaborate on a{" "}
+        <span className="underline">social-style platform</span> for developers
+        to showcase portfolios and form teams.
       </p>
 
       <p>
-        With each project, I’m committed to learning and applying best practices
-        in software development. My goal is to create impactful, user-friendly
-        applications that solve real-world problems, and I'm always excited to
-        learn and integrate new technologies into my skill set.
+        I'm passionate about building{" "}
+        <span className="underline">scalable</span> and{" "}
+        <span className="underline">efficient</span> full-stack applications
+        using modern tools like{" "}
+        <span className="font-bold">Prisma, Docker,</span> and{" "}
+        <span className="font-bold">Shadcn-ui</span>. Currently expanding my
+        expertise in <span className="font-bold">Java, Spring Boot,</span> and{" "}
+        <span className="font-bold">containerization</span> to enhance my
+        backend development skills.
       </p>
     </motion.section>
   );
