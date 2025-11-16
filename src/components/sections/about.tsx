@@ -94,7 +94,7 @@ function ProfileImage({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
     >
       <div className="relative w-full h-full">
         <Image
-          src="/placeholder.svg"
+          src="/pf.png"
           alt="Profile photo of Zaw Hlaing Phyo"
           className="object-cover"
           fill
