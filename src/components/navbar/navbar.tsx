@@ -8,7 +8,7 @@ import { NavigationSheet } from "./navigation-sheet";
 
 export default function Navbar() {
   return (
-    <nav className="fixed z-999 top-6 inset-x-4 h-14 bg-background/80 backdrop-blur-sm border dark:border-slate-700/70 max-w-3xl mx-auto rounded-full shadow-lg shadow-black/3">
+    <nav className="fixed z-100 top-6 inset-x-4 h-14 bg-background/80 backdrop-blur-sm border dark:border-slate-700/70 max-w-3xl mx-auto rounded-full shadow-lg shadow-black/3">
       <div className="h-full flex items-center justify-between mx-auto px-3">
         <Logo />
 
