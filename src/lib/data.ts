@@ -1,3 +1,4 @@
+import { Mail, MapPin, Phone } from "lucide-react";
 import type { Experience, Project, SectionName } from "@/types";
 
 export const links: { title: SectionName; href: string }[] = [
@@ -138,3 +139,29 @@ export const projects: Project[] = [
 //     imageUrl: Portfolio,
 //   },
 // ] as const;
+
+export const contactInfo = [
+  {
+    icon: Mail,
+    title: "Email",
+    description:
+      "Have a question or need help? Drop me an email, and I'll respond within 24 hours.",
+    value: "tro2233zhp@gmail.com",
+    // href: "mailto:tro2233zhp@gmail.com",
+  },
+  {
+    icon: Phone,
+    title: "Phone",
+    description: "Prefer to chat? Give me a call Monday–Friday, 9 AM–5 PM.",
+    value: "+66 99 397 0485",
+    // href: "tel:+661234567890",
+  },
+  {
+    icon: MapPin,
+    title: "Location",
+    description:
+      "Based in Bangkok, Thailand. Open to remote opportunities worldwide.",
+    value: "Bangkok, Thailand",
+    // href: "#",
+  },
+];

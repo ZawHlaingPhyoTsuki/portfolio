@@ -9,7 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Logo } from "./logo";
+import Logo from "./logo";
 import { NavMenu } from "./nav-menu";
 
 export function NavigationSheet() {

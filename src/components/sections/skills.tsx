@@ -3,7 +3,7 @@
 import { Code2, Database, Library, Wrench } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-
+import { Badge } from "@/components/ui/badge";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import { skillsData } from "@/lib/skill-icons";
 import SkillCategory from "../skill-category";
@@ -28,6 +28,9 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+          <Badge variant="secondary" className="mb-4">
+            Skills
+          </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
             Skills & Technologies
           </h2>
