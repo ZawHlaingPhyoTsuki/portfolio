@@ -1,12 +1,20 @@
+"use client";
+
 import { CircleArrowDown, Zap } from "lucide-react";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+// import { useActiveSectionContext } from "@/context/active-section-context";
+import { useSectionInView } from "@/hooks/use-section-in-view";
 import { cn } from "@/lib/utils";
 
 export default function Hero() {
+  const { ref } = useSectionInView("Home", 0.5);
+  // const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
   return (
     <section
+      ref={ref}
       id="home"
       className="relative min-h-screen flex items-center justify-center px-6 pt-6 overflow-hidden"
     >

@@ -1,14 +1,19 @@
+"use client";
+
 import { Download } from "lucide-react";
 import Image from "next/image";
 import type { HTMLAttributes } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useSectionInView } from "@/hooks/use-section-in-view";
 import { cn } from "@/lib/utils";
-import { GithubLogo } from "./icons";
+import { GithubLogo } from "../icons";
 
 export default function About() {
+  const { ref } = useSectionInView("About", 1);
+
   return (
-    <section id="about" className="relative py-20 px-6">
+    <section ref={ref} id="about" className="relative py-20 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
           <ProfileImage className="shrink-0" />
