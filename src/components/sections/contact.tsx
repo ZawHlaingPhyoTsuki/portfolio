@@ -54,9 +54,15 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-3xl lg:max-w-full mx-auto">
           {/* Contact Form */}
-          <div className="lg:col-span-1">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="lg:col-span-1"
+          >
             <ContactForm />
-          </div>
+          </motion.div>
 
           {/* Contact Information */}
           <div className="lg:col-span-1">
