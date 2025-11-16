@@ -4,13 +4,14 @@ import { CircleArrowDown, Zap } from "lucide-react";
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-// import { useActiveSectionContext } from "@/context/active-section-context";
+import { useActiveSectionContext } from "@/context/active-section-context";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Hero() {
   const { ref } = useSectionInView("Home", 0.5);
-  // const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
     <section
@@ -46,8 +47,18 @@ export default function Hero() {
           <span className="font-semibold">Node.js</span> 🚀
         </p>
         <div className="mt-12 flex items-center justify-center gap-4">
-          <Button size="lg" className="rounded-full text-base">
-            See What I Do <CircleArrowDown className="ml-2 h-5.5! w-5.5!" />
+          <Button
+            onClick={() => {
+              setActiveSection("Projects");
+              setTimeOfLastClick(Date.now());
+            }}
+            size="lg"
+            className="rounded-full text-base"
+            asChild
+          >
+            <Link href="#projects">
+              See What I Do <CircleArrowDown className="ml-2 h-5.5! w-5.5!" />
+            </Link>
           </Button>
         </div>
       </div>
