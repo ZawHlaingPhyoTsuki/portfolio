@@ -22,17 +22,21 @@ export function NavMenu({ className, ...props }: NavigationMenuProps) {
       {...props}
     >
       <NavigationMenuList className="gap-1 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start">
-        {links.map((link) => (
+        {links.map((link, index) => (
           <NavigationMenuItem
             key={link.title}
             className="flex items-center justify-center relative"
           >
-            {/* Use a regular div instead of NavigationMenuLink to avoid focus issues */}
-            <div className="relative">
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+            >
               <Link
                 href={link.href}
                 className={cn(
-                  "flex w-full items-center justify-center px-3 py-2 rounded-full text-sm font-medium transition-colors relative z-10",
+                  "flex w-full items-center justify-center px-3 py-2 rounded-full text-sm font-medium transition-colors relative z-10 group",
                   "hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                   activeSection === link.title
                     ? "text-foreground"
@@ -43,7 +47,13 @@ export function NavMenu({ className, ...props }: NavigationMenuProps) {
                   setTimeOfLastClick(Date.now());
                 }}
               >
-                {link.title}
+                <motion.span
+                  whileHover={{ scale: 1.05, y: -1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  {/* capitalise first letter */}
+                  {link.title.charAt(0).toUpperCase() + link.title.slice(1)}
+                </motion.span>
 
                 {activeSection === link.title && (
                   <motion.span
@@ -54,10 +64,11 @@ export function NavMenu({ className, ...props }: NavigationMenuProps) {
                       stiffness: 380,
                       damping: 30,
                     }}
+                    whileHover={{ scale: 1.02 }}
                   />
                 )}
               </Link>
-            </div>
+            </motion.div>
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>
