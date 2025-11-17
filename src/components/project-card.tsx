@@ -62,7 +62,7 @@ export function ProjectCard({
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex flex-col p-6 min-h-0">
+      <div className="flex-1 flex flex-col p-6 min-h-0 bg-card text-card-foreground gap-6 border py-6 shadow-sm">
         {/* Title and Description */}
         <div className="shrink-0">
           <motion.h3

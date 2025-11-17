@@ -58,7 +58,7 @@ export const projects: Project[] = [
   {
     title: "Nest Flow Utility Management System",
     description:
-      "A comprehensive utility management system built with Node.js, TypeScript, and PostgreSQL for managing rental properties, tenants, billing, and customer services.",
+      "A collaborative full-stack utility management system developed as part of the 'One Project One Month' initiative. I contributed as a backend developer, building RESTful APIs with Express.js and Prisma, implementing authentication systems, and creating comprehensive Swagger documentation. Worked closely with a distributed team using agile methodologies to deliver features for property management, tenant billing, and utility tracking.",
     image: "/projects/nest-flow.jpg",
     technologies: [
       "React",
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     title: "Break Even Point Calculator",
     description:
       "A React application that helps users calculate the break even point of a product based on its cost and sales price.",
-    image: "/projects/break-even-point-calculator2.png",
+    image: "/projects/break-even-point-calculator.png",
     technologies: [
       "Next.js",
       "Zustand",
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     title: "Portfolio Website",
     description:
       "A personal portfolio website built with Next.js, Shadcn UI, and Motion.",
-    image: "/placeholder.svg",
+    image: "/projects/portfolio.png",
     technologies: [
       "Next.js",
       "Shadcn UI",

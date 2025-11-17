@@ -193,7 +193,7 @@ export default function About() {
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 <Link
-                  href="/CV.pdf"
+                  href="/resume.pdf"
                   download
                   className={cn(
                     buttonVariants({ variant: "outline" }),
@@ -206,7 +206,7 @@ export default function About() {
                   >
                     <Download className="w-4 h-4" />
                   </motion.div>
-                  Download CV
+                  Download Resume
                 </Link>
               </motion.div>
             </motion.div>
