@@ -108,7 +108,7 @@ export const projects: Project[] = [
       "BetterAuth",
       "Bun",
     ],
-    liveUrl: "https://chatapp-demo.com",
+    liveUrl: "",
     githubUrl: "https://github.com/ZawHlaingPhyoTsuki/project-management-app",
   },
   {
@@ -124,8 +124,8 @@ export const projects: Project[] = [
       "React Hook Form",
       "Pnpm",
     ],
-    liveUrl: "https://ai-image-generator.com",
-    githubUrl: "https://github.com/username/ai-image-generator",
+    liveUrl: "https://zaw-hlaing-phyo-portfolio.vercel.app/",
+    githubUrl: "https://github.com/ZawHlaingPhyoTsuki/portfolio",
   },
 ];
 

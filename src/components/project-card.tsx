@@ -97,20 +97,26 @@ export function ProjectCard({
 
         {/* Actions */}
         <div className="flex gap-3 mt-auto pt-4 shrink-0">
-          {liveUrl && (
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.1, ease: "easeOut" }}
-            >
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.1, ease: "easeOut" }}
+          >
+            {liveUrl ? (
               <Button variant="default" className="rounded-full" asChild>
                 <a href={liveUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-1 h-4 w-4" />
                   Live Demo
                 </a>
               </Button>
-            </motion.div>
-          )}
+            ) : (
+              <Button variant="default" className="rounded-full" disabled>
+                <ExternalLink className="mr-1 h-4 w-4" />
+                Live Demo
+              </Button>
+            )}
+          </motion.div>
+
           {githubUrl && (
             <motion.div
               whileHover={{ scale: 1.02 }}
