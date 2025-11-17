@@ -3,27 +3,27 @@ import type { Experience, Project, SectionName } from "@/types";
 
 export const links: { title: SectionName; href: string }[] = [
   {
-    title: "Home",
+    title: "home",
     href: "#home",
   },
   {
-    title: "About",
+    title: "about",
     href: "#about",
   },
   {
-    title: "Experience",
+    title: "experience",
     href: "#experience",
   },
   {
-    title: "Skills",
+    title: "skills",
     href: "#skills",
   },
   {
-    title: "Projects",
+    title: "projects",
     href: "#projects",
   },
   {
-    title: "Contact",
+    title: "contact",
     href: "#contact",
   },
 ];
@@ -56,89 +56,78 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "Nest Flow Utility Management System",
     description:
-      "A full-featured e-commerce platform with real-time inventory management, payment processing, and admin dashboard.",
-    image: "/placeholder.svg",
-    technologies: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
-    liveUrl: "https://ecommerce-demo.com",
-    githubUrl: "https://github.com/username/ecommerce",
+      "A collaborative full-stack utility management system developed as part of the 'One Project One Month' initiative. I contributed as a backend developer, building RESTful APIs with Express.js and Prisma, implementing authentication systems, and creating comprehensive Swagger documentation. Worked closely with a distributed team using agile methodologies to deliver features for property management, tenant billing, and utility tracking.",
+    image: "/projects/nest-flow.jpg",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "Zod",
+    ],
+    liveUrl: "https://node-utility-management-system-fye1.onrender.com/docs",
+    githubUrl:
+      "https://github.com/one-project-one-month/Node-Utility-Management-System",
   },
   {
-    title: "AI Task Manager",
+    title: "Break Even Point Calculator",
     description:
-      "Smart task management app that uses AI to categorize, prioritize, and suggest optimal task scheduling.",
-    image: "/placeholder.svg",
-    technologies: ["React", "Python", "TensorFlow", "FastAPI", "MongoDB"],
-    liveUrl: "https://ai-taskmanager.com",
-    githubUrl: "https://github.com/username/ai-taskmanager",
+      "A React application that helps users calculate the break even point of a product based on its cost and sales price.",
+    image: "/projects/break-even-point-calculator.png",
+    technologies: [
+      "Next.js",
+      "Zustand",
+      "Jest",
+      "React Testing Library",
+      "React Hook Form",
+      "Zod",
+    ],
+    liveUrl: "https://break-even-calculator-eta.vercel.app/",
+    githubUrl: "https://github.com/ZawHlaingPhyoTsuki/Break-Even-Calculator",
   },
   {
-    title: "Real-time Chat Application",
+    title: "Project Management App",
     description:
-      "Feature-rich chat application with real-time messaging, file sharing, and video calls.",
+      "A full-stack project management app that allows users to create and manage projects, tasks, and team members.",
     image: "/placeholder.svg",
-    technologies: ["React", "Socket.io", "WebRTC", "Node.js", "Redis"],
+    technologies: [
+      "Next.js",
+      "Prisma",
+      "Shadcn UI",
+      "TanStack Query",
+      "Zustand",
+      "React Hook Form",
+      "Zod",
+      "Vitest",
+      "React Testing Library",
+      "Docker",
+      "PostgreSQL",
+      "BetterAuth",
+      "Bun",
+    ],
     liveUrl: "https://chatapp-demo.com",
-    githubUrl: "https://github.com/username/chat-app",
+    githubUrl: "https://github.com/ZawHlaingPhyoTsuki/project-management-app",
   },
   {
-    title: "AI Image Generator",
+    title: "Portfolio Website",
     description:
-      "An AI image generator that uses a model to generate images based on a prompt.",
-    image: "/placeholder.svg",
-    technologies: ["React", "Next.js", "Tailwind CSS", "Shadcn UI"],
+      "A personal portfolio website built with Next.js, Shadcn UI, and Motion.",
+    image: "/projects/portfolio.png",
+    technologies: [
+      "Next.js",
+      "Shadcn UI",
+      "Motion",
+      "Zod",
+      "React Hook Form",
+      "Pnpm",
+    ],
     liveUrl: "https://ai-image-generator.com",
     githubUrl: "https://github.com/username/ai-image-generator",
   },
 ];
-
-// export const projectsData = [
-//   {
-//     title: "Ecommerce Website",
-//     description:
-//       "A full-stack e-commerce platform where users can browse products, manage their accounts, and make secure payments using Stripe. Features include user authentication with JWT, product management, and a responsive UI built with React and Tailwind.",
-//     tags: [
-//       "React",
-//       "MongoDB",
-//       "Tailwind",
-//       "Node.js",
-//       "Express",
-//       "JWT",
-//       "Stripe",
-//     ],
-//     imageUrl: Ecommerce1,
-//   },
-//   {
-//     title: "Food Delivery App",
-//     description:
-//       "A food delivery platform developed with a robust front-end and back-end integration. It includes user authentication, payment processing with Stripe, real-time order tracking, and a responsive design using React and Tailwind.",
-//     tags: [
-//       "React",
-//       "Tailwind",
-//       "Stripe",
-//       "JWT",
-//       "MongoDB",
-//       "Node.js",
-//       "Express",
-//     ],
-//     imageUrl: FoodDel,
-//   },
-//   {
-//     title: "Portfolio",
-//     description:
-//       "A personal portfolio website built with Next.js, Framer Motion, Resend, and React.Email for seamless email integration. It supports both dark mode and light mode, offering a modern and dynamic user experience.",
-//     tags: [
-//       "React",
-//       "Next.js",
-//       "Tailwind",
-//       "Framer-motion",
-//       "Resend",
-//       "React.Email",
-//     ],
-//     imageUrl: Portfolio,
-//   },
-// ] as const;
 
 export const contactInfo = [
   {

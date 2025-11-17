@@ -16,7 +16,7 @@ const categoryIcons = {
 };
 
 export default function Skills() {
-  const { ref } = useSectionInView("Skills", 1);
+  const { ref } = useSectionInView("skills", 0.5);
 
   return (
     <section ref={ref} id="skills" className="relative py-20 px-6">

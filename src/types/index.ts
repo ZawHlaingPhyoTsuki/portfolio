@@ -1,10 +1,10 @@
 export type SectionName =
-  | "Home"
-  | "About"
-  | "Experience"
-  | "Skills"
-  | "Projects"
-  | "Contact";
+  | "home"
+  | "about"
+  | "experience"
+  | "skills"
+  | "projects"
+  | "contact";
 
 export type Experience = {
   title: string;
