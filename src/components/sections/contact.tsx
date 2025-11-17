@@ -7,7 +7,7 @@ import { contactInfo } from "@/lib/data";
 import ContactForm from "../contact-form";
 
 export default function Contact() {
-  const { ref } = useSectionInView("Contact", 0.5);
+  const { ref } = useSectionInView("contact", 0.5);
 
   return (
     <motion.section

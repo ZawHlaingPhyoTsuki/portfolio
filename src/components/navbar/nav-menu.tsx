@@ -51,7 +51,8 @@ export function NavMenu({ className, ...props }: NavigationMenuProps) {
                   whileHover={{ scale: 1.05, y: -1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  {link.title}
+                  {/* capitalise first letter */}
+                  {link.title.charAt(0).toUpperCase() + link.title.slice(1)}
                 </motion.span>
 
                 {activeSection === link.title && (

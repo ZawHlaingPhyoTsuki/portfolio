@@ -11,7 +11,7 @@ import { useSectionInView } from "@/hooks/use-section-in-view";
 import { cn } from "@/lib/utils";
 
 export default function Hero() {
-  const { ref } = useSectionInView("Home", 0.5);
+  const { ref } = useSectionInView("home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
@@ -146,7 +146,7 @@ export default function Hero() {
           >
             <Button
               onClick={() => {
-                setActiveSection("Projects");
+                setActiveSection("projects");
                 setTimeOfLastClick(Date.now());
               }}
               size="lg"

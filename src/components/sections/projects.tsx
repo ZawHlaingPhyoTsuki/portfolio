@@ -7,7 +7,7 @@ import { projects } from "@/lib/data";
 import { ProjectCard } from "../project-card";
 
 export default function Projects() {
-  const { ref } = useSectionInView("Projects", 1);
+  const { ref } = useSectionInView("projects", 0.5);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },

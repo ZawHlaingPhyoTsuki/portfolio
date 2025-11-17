@@ -7,7 +7,7 @@ import { experiences } from "@/lib/data";
 import ExperienceItem from "../experience-item";
 
 export default function Experience() {
-  const { ref } = useSectionInView("Experience", 1);
+  const { ref } = useSectionInView("experience", 1);
 
   return (
     <motion.section

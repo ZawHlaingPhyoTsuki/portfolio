@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { GithubLogo } from "../icons";
 
 export default function About() {
-  const { ref } = useSectionInView("About", 1);
+  const { ref } = useSectionInView("about", 1);
 
   return (
     <motion.section
@@ -192,7 +192,7 @@ export default function About() {
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Button variant="outline" className="rounded-full gap-2 group">
+                {/* <Button variant="outline" className="rounded-full gap-2 group">
                   <motion.div
                     whileHover={{ y: -2 }}
                     transition={{ duration: 0.2 }}
@@ -200,7 +200,23 @@ export default function About() {
                     <Download className="w-4 h-4" />
                   </motion.div>
                   Download CV
-                </Button>
+                </Button> */}
+                <Link
+                  href="/CV.pdf"
+                  download
+                  className={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "rounded-full gap-2 group",
+                  )}
+                >
+                  <motion.div
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Download className="w-4 h-4" />
+                  </motion.div>
+                  Download CV
+                </Link>
               </motion.div>
             </motion.div>
           </div>
