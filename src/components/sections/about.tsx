@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { HTMLAttributes } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import { cn } from "@/lib/utils";
 import { GithubLogo } from "../icons";
@@ -192,15 +192,6 @@ export default function About() {
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                {/* <Button variant="outline" className="rounded-full gap-2 group">
-                  <motion.div
-                    whileHover={{ y: -2 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Download className="w-4 h-4" />
-                  </motion.div>
-                  Download CV
-                </Button> */}
                 <Link
                   href="/CV.pdf"
                   download
