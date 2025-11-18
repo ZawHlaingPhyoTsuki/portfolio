@@ -148,7 +148,7 @@ export default function About() {
                   transition={{ duration: 0.4, delay: 1.2 }}
                   viewport={{ once: true }}
                 >
-                  Java, Spring Boot, and containerization
+                  Java, Spring Boot, and CI/CD{" "}
                 </motion.span>
                 to enhance my backend development skills.
               </motion.p>
