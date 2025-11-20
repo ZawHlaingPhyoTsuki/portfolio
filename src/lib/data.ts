@@ -108,7 +108,7 @@ export const projects: Project[] = [
       "BetterAuth",
       "Bun",
     ],
-    liveUrl: "",
+    liveUrl: "https://project-management-app-orcin-five.vercel.app/",
     githubUrl: "https://github.com/ZawHlaingPhyoTsuki/project-management-app",
   },
   {
