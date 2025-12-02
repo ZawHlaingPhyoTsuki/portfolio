@@ -32,7 +32,7 @@ export const experiences: Experience[] = [
   {
     title: "Backend Developer",
     company: "One Project, One Month",
-    period: "2025 Nov - Present",
+    period: "2025 Nov - 2025 Dec",
     description:
       "Developed backend services for a Utility Management System using Express.js and Prisma. Led the authentication module implementation, created comprehensive Swagger documentation for all API endpoints, and conducted code reviews to maintain code quality. Collaborated with team members to troubleshoot and resolve technical challenges in their modules.",
     technologies: [
