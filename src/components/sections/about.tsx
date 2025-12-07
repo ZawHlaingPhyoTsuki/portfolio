@@ -128,7 +128,7 @@ export default function About() {
                   transition={{ duration: 0.4, delay: 1.0 }}
                   viewport={{ once: true }}
                 >
-                  scalable and efficient full-stack applications
+                  scalable and efficient full-stack applications{" "}
                 </motion.span>
                 using modern tools like{" "}
                 <motion.span
