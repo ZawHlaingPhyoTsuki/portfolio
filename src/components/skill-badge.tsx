@@ -17,15 +17,20 @@ export default function SkillBadge({
         variant="secondary"
         className="rounded-full px-3 py-1.5 text-sm border transition-colors hover:bg-accent/50 flex items-center gap-2 cursor-pointer"
       >
-        <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
-          <Image
-            width={16}
-            height={16}
-            src={skill.icon}
-            alt={skill.name}
-            className="h-4 w-4"
-          />
-        </motion.div>
+        {skill.icon ? (
+          <motion.div
+            whileHover={{ rotate: 360 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Image
+              width={16}
+              height={16}
+              src={skill.icon}
+              alt={skill.name}
+              className="h-4 w-4"
+            />
+          </motion.div>
+        ) : null}
         {skill.name}
       </Badge>
     </motion.div>

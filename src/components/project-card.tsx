@@ -54,7 +54,12 @@ export function ProjectCard({
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
-          <Image src={image} alt={title} className="object-cover" fill />
+          <Image
+            src={image || "/placeholder.svg"}
+            alt={title}
+            className="object-cover"
+            fill
+          />
         </motion.div>
 
         {/* Hover Overlay */}

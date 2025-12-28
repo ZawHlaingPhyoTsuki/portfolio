@@ -9,6 +9,8 @@ export type SectionName =
 export type Experience = {
   title: string;
   company: string;
+  companyImage?: string;
+  companyUrl?: string;
   period: string;
   description: string;
   technologies: string[];

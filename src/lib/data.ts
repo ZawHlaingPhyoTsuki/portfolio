@@ -30,8 +30,28 @@ export const links: { title: SectionName; href: string }[] = [
 
 export const experiences: Experience[] = [
   {
+    title: "Freelance Developer",
+    company: "Banana Coder",
+    companyImage: "/experiences/banana-coder.png",
+    companyUrl: "https://github.com/Banana-Coder",
+    period: "2025 Dec - Present",
+    description:
+      "Delivered a production-ready Car Dealership Management System for a real client as part of the Banana Coder organization. Developed a full-stack admin-only application enabling car inventory management, employee records, expense tracking, and profit analytics. Collaborated with a teammate on system design, database modeling with Prisma, and deployment on Vercel, ensuring a simple and efficient workflow for daily business operations.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Express.js",
+      "PostgreSQL",
+      "Prisma",
+      "Docker",
+      "Zod",
+    ],
+  },
+  {
     title: "Backend Developer",
     company: "One Project, One Month",
+    companyImage: "/experiences/one.png",
+    companyUrl: "https://github.com/One-Project-One-Month",
     period: "2025 Nov - 2025 Dec",
     description:
       "Developed backend services for a Utility Management System using Express.js and Prisma. Led the authentication module implementation, created comprehensive Swagger documentation for all API endpoints, and conducted code reviews to maintain code quality. Collaborated with team members to troubleshoot and resolve technical challenges in their modules.",
@@ -47,6 +67,8 @@ export const experiences: Experience[] = [
   {
     title: "Student",
     company: "Kasem Bundit University, Bangkok, Thailand",
+    companyImage: "/experiences/kasem.png",
+    companyUrl: "https://kbu.ac.th/",
     period: "2024 - Present",
     description:
       "Pursuing a bachelor's degree with a focus on digital technology innovation, building foundational skills in software development, digital systems, and technology trends.",
@@ -73,6 +95,31 @@ export const projects: Project[] = [
       "https://github.com/one-project-one-month/Node-Utility-Management-System",
   },
   {
+    title: "Car Dealership Management App",
+    description:
+      "A production-ready full-stack admin-only application enabling car inventory management, employee records, expense tracking, and profit analytics.",
+    image: "/projects/7hr.png",
+    technologies: [
+      "Next.js",
+      "Prisma",
+      "Shadcn UI",
+      "TanStack Query",
+      "TanStack Table",
+      "React Hook Form",
+      "Zod",
+      "Vitest",
+      "Docker",
+      "PostgreSQL",
+      "BetterAuth",
+      "Pnpm",
+      "Cloudinary",
+      "Biomejs",
+    ],
+    liveUrl: "https://7hrs-automobile.vercel.app",
+    githubUrl:
+      "https://github.com/ZawHlaingPhyoTsuki/Car-Dealership-Management-System",
+  },
+  {
     title: "Break Even Point Calculator",
     description:
       "A React application that helps users calculate the break even point of a product based on its cost and sales price.",
@@ -88,29 +135,29 @@ export const projects: Project[] = [
     liveUrl: "https://break-even-calculator-eta.vercel.app/",
     githubUrl: "https://github.com/ZawHlaingPhyoTsuki/Break-Even-Calculator",
   },
-  {
-    title: "Project Management App",
-    description:
-      "A full-stack project management app that allows users to create and manage projects, tasks, and team members.",
-    image: "/placeholder.svg",
-    technologies: [
-      "Next.js",
-      "Prisma",
-      "Shadcn UI",
-      "TanStack Query",
-      "Zustand",
-      "React Hook Form",
-      "Zod",
-      "Vitest",
-      "React Testing Library",
-      "Docker",
-      "PostgreSQL",
-      "BetterAuth",
-      "Bun",
-    ],
-    liveUrl: "https://project-management-app-orcin-five.vercel.app/",
-    githubUrl: "https://github.com/ZawHlaingPhyoTsuki/project-management-app",
-  },
+  // {
+  //   title: "Project Management App",
+  //   description:
+  //     "A full-stack project management app that allows users to create and manage projects, tasks, and team members.",
+  //   image: "/placeholder.svg",
+  //   technologies: [
+  //     "Next.js",
+  //     "Prisma",
+  //     "Shadcn UI",
+  //     "TanStack Query",
+  //     "Zustand",
+  //     "React Hook Form",
+  //     "Zod",
+  //     "Vitest",
+  //     "React Testing Library",
+  //     "Docker",
+  //     "PostgreSQL",
+  //     "BetterAuth",
+  //     "Bun",
+  //   ],
+  //   liveUrl: "https://project-management-app-orcin-five.vercel.app/",
+  //   githubUrl: "https://github.com/ZawHlaingPhyoTsuki/project-management-app",
+  // },
   {
     title: "Portfolio Website",
     description:

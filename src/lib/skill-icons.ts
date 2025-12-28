@@ -60,6 +60,7 @@ export const skillsData: Skills = {
     description: "Development tools, libraries, and utilities",
     skills: [
       { name: "TanStack Query", icon: "/skills/reactquery.svg" },
+      { name: "TanStack Table", icon: "/skills/reactquery.svg" },
       { name: "TanStack Form", icon: "/skills/tanstack-form.svg" },
       { name: "React Hook Form", icon: "/skills/reacthookform.svg" },
       { name: "Redux Toolkit", icon: "/skills/Redux.svg" },

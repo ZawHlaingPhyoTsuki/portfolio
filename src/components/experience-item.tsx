@@ -2,23 +2,19 @@
 
 import { Building2, Calendar } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-
-interface ExperienceItemProps {
-  title: string;
-  company: string;
-  period: string;
-  description: string;
-  technologies: string[];
-}
+import type { Experience } from "@/types";
 
 export default function ExperienceItem({
   title,
   company,
+  companyImage,
+  companyUrl,
   period,
   description,
   technologies,
-}: ExperienceItemProps) {
+}: Experience) {
   return (
     <motion.div
       className="relative pl-8 not-last:pb-12 group mt-10"
@@ -52,14 +48,26 @@ export default function ExperienceItem({
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <Building2 className="size-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+            {companyImage ? (
+              <Image
+                src={companyImage}
+                alt={company}
+                width={32}
+                height={32}
+                className="rounded-full"
+              />
+            ) : (
+              <Building2 className="size-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+            )}
           </motion.div>
-          <motion.span
-            className="text-lg font-semibold group-hover:text-primary transition-colors duration-300"
+          <motion.a
+            href={companyUrl}
+            target="_blank"
+            className="text-lg font-semibold group-hover:text-primary transition-colors duration-300 relative inline-block after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-primary after:w-0 after:transition-all after:duration-300 hover:after:w-full"
             whileHover={{ x: 2 }}
           >
             {company}
-          </motion.span>
+          </motion.a>
         </motion.div>
 
         {/* Title & Period */}
