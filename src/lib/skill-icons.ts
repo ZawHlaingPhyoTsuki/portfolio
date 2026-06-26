@@ -36,6 +36,7 @@ export const skillsData: Skills = {
     skills: [
       { name: "React", icon: "/skills/React-Dark.svg" },
       { name: "Next.js", icon: "/skills/NextJS-Dark.svg" },
+      { name: "TanStack Start", icon: "/skills/tanstack-start.png" },
       { name: "NestJS", icon: "/skills/NestJS-Dark.svg" },
       { name: "Express", icon: "/skills/ExpressJS-Dark.svg" },
       { name: "Spring Boot", icon: "/skills/Spring-Dark.svg" },

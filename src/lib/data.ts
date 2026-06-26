@@ -78,6 +78,28 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    title: "Recall: Tanstack Start Firecrawl",
+    description:
+      "A full-stack Read-It-Later content library and bookmark manager built using TanStack Start, Firecrawl, Vercel AI SDK, Better Auth, and Prisma. It allows users to scrape single or multiple URLs, search and discover web pages on any topic, read clean extracted Markdown content, and automatically generate summaries and tags using LLMs.",
+    image: "/projects/tanstack-start-firecrawl.png",
+    technologies: [
+      "Tanstack Start",
+      "Firecrawl SDK",
+      "Vercel AI SDK",
+      "OpenRouter AI Provider",
+      "Prisma",
+      "Shadcn UI",
+      "Tanstack Form",
+      "Zod",
+      "Docker",
+      "PostgreSQL",
+      "BetterAuth",
+      "Pnpm",
+    ],
+    liveUrl: "https://tanstack-start-firecrawl.vercel.app/",
+    githubUrl: "https://github.com/ZawHlaingPhyoTsuki/tanstack-start-firecrawl",
+  },
+  {
     title: "Nest Flow Utility Management System",
     description:
       "A collaborative full-stack utility management system developed as part of the 'One Project One Month' initiative. I contributed as a backend developer, building RESTful APIs with Express.js and Prisma, implementing authentication systems, and creating comprehensive Swagger documentation. Worked closely with a distributed team using agile methodologies to deliver features for property management, tenant billing, and utility tracking.",
@@ -135,29 +157,6 @@ export const projects: Project[] = [
     liveUrl: "https://break-even-calculator-eta.vercel.app/",
     githubUrl: "https://github.com/ZawHlaingPhyoTsuki/Break-Even-Calculator",
   },
-  // {
-  //   title: "Project Management App",
-  //   description:
-  //     "A full-stack project management app that allows users to create and manage projects, tasks, and team members.",
-  //   image: "/placeholder.svg",
-  //   technologies: [
-  //     "Next.js",
-  //     "Prisma",
-  //     "Shadcn UI",
-  //     "TanStack Query",
-  //     "Zustand",
-  //     "React Hook Form",
-  //     "Zod",
-  //     "Vitest",
-  //     "React Testing Library",
-  //     "Docker",
-  //     "PostgreSQL",
-  //     "BetterAuth",
-  //     "Bun",
-  //   ],
-  //   liveUrl: "https://project-management-app-orcin-five.vercel.app/",
-  //   githubUrl: "https://github.com/ZawHlaingPhyoTsuki/project-management-app",
-  // },
   {
     title: "Portfolio Website",
     description:

@@ -114,10 +114,10 @@ export default function Skills() {
               skillsData.languages.skills[0], // TypeScript
               skillsData.frameworks.skills[0], // React
               skillsData.frameworks.skills[1], // Next.js
-              skillsData.frameworks.skills[2], // NestJS
+              skillsData.frameworks.skills[3], // NestJS
               skillsData.databases.skills[4], // Prisma
-              skillsData.languages.skills[2], // Java
-              skillsData.frameworks.skills[4], // Spring Boot
+              skillsData.frameworks.skills[2], // Tanstack Start
+              skillsData.frameworks.skills[5], // Spring Boot
             ].map((skill, index) => (
               <motion.div
                 key={skill.name}
