@@ -1,221 +1,121 @@
-"use client";
+import { HugeiconsIcon } from '@hugeicons/react';
+import { CheckmarkBadge01Icon, ChevronRightIcon } from '@hugeicons/core-free-icons';
+import { profile } from '@/data';
+import PixelTransition from '@/components/react-bits/pixel-transition';
+import { OutlineDashedBadge } from '@/components/outline-dashed-badge';
+import { SkillIcon } from '@/components/skill-icon';
+import Image from 'next/image';
 
-import { CircleArrowDown, Zap } from "lucide-react";
-import { motion } from "motion/react";
-import Link from "next/link";
-import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { useActiveSectionContext } from "@/context/active-section-context";
-import { useSectionInView } from "@/hooks/use-section-in-view";
-import { cn } from "@/lib/utils";
+const [headlineMain, headlineRest] = profile.headline.split(' — ');
 
-export default function Hero() {
-  const { ref } = useSectionInView("home", 0.5);
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+function renderBio(text: string) {
+  const matches = profile.bioSkills
+    .map((name) => ({ name, index: text.indexOf(name) }))
+    .filter((m) => m.index !== -1)
+    .sort((a, b) => a.index - b.index);
 
+  const nodes: React.ReactNode[] = [];
+  let pos = 0;
+  for (const { name, index } of matches) {
+    if (index < pos) continue;
+    if (index > pos) nodes.push(text.slice(pos, index));
+    nodes.push(
+      <OutlineDashedBadge key={name} className="gap-2 px-3 py-1.5 text-sm text-muted-foreground">
+        <SkillIcon name={name} />
+        {name}
+      </OutlineDashedBadge>,
+    );
+    pos = index + name.length;
+  }
+  if (pos < text.length) nodes.push(text.slice(pos));
+  return nodes;
+}
+
+export function Hero() {
   return (
-    <motion.section
-      ref={ref}
-      id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 pt-6 overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <AnimatedGridPattern
-        numSquares={30}
-        maxOpacity={0.1}
-        duration={3}
-        className={cn(
-          "mask-[radial-gradient(500px_circle_at_center,white,transparent)]",
-          "inset-x-0 h-full skew-y-12",
-        )}
-      />
-
-      <div className="relative z-1 text-center max-w-3xl">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <Badge className="rounded-full border-none">
-            <motion.div
-              animate={{
-                rotate: [0, 10, -10, 0],
-                scale: [1, 1.1, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 3,
-              }}
-            >
-              <Zap className="fill-current" />
-            </motion.div>
-            Fullstack Developer
-          </Badge>
-        </motion.div>
-
-        {/* Main Heading */}
-        <motion.h1
-          className="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.2]! tracking-tight"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          Bridging Design & Development with Modern Web Technologies
-        </motion.h1>
-
-        {/* Description */}
-        <motion.p
-          className="mt-6 text-[17px] md:text-lg"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          Hey there! I&apos;m{" "}
-          <motion.span
-            className="font-semibold"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            Zaw Hlaing Phyo
-          </motion.span>{" "}
-          <motion.span
-            className="italic"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.9 }}
-          >
-            (Zee)
-          </motion.span>
-          , a{" "}
-          <motion.span
-            className="font-semibold"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.0 }}
-          >
-            Full Stack Developer
-          </motion.span>
-          , enthusiastic about learning and growing in real-world projects. My
-          focus is{" "}
-          <motion.span
-            className="font-semibold"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.1 }}
-          >
-            React (Next.js)
-          </motion.span>{" "}
-          &{" "}
-          <motion.span
-            className="font-semibold"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.2 }}
-          >
-            Node.js
-          </motion.span>{" "}
-          <motion.span
-            initial={{ scale: 0, rotate: 0 }}
-            animate={{ scale: 1, rotate: 360 }}
-            transition={{ duration: 0.5, delay: 1.4 }}
-          >
-            🚀
-          </motion.span>
-        </motion.p>
-
-        {/* CTA Button */}
-        <motion.div
-          className="mt-12 flex items-center justify-center gap-4"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-        >
-          <motion.div
-            whileHover={{
-              scale: 1.05,
-              y: -2,
-            }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <Button
-              onClick={() => {
-                setActiveSection("projects");
-                setTimeOfLastClick(Date.now());
-              }}
-              size="lg"
-              className="rounded-full text-base group relative overflow-hidden"
-              asChild
-            >
-              <Link href="#projects">
-                <motion.span
-                  initial={{ x: -10, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 1.6 }}
-                  className="flex items-center"
-                >
-                  See What I Do
-                  <motion.div
-                    initial={{ x: 10, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 1.7 }}
-                    className="ml-2"
-                  >
-                    <CircleArrowDown className="h-5.5! w-5.5!" />
-                  </motion.div>
-                </motion.span>
-
-                {/* Button hover effect */}
-                <motion.div
-                  className="absolute inset-0 bg-linear-to-r from-primary/20 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={false}
-                />
-              </Link>
-            </Button>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          className="mt-16 flex justify-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 2.0 }}
-        >
-          <motion.div
-            animate={{
-              y: [0, 10, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="flex flex-col items-center gap-2 text-muted-foreground"
-          >
-            <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center">
-              <motion.div
-                animate={{
-                  y: [0, 12, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="w-1 h-3 bg-muted-foreground rounded-full mt-2"
+    <section id="home" className="scroll-mt-20 pt-6 pb-2 sm:pt-16">
+      <div className="space-y-6 sm:space-y-10 motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700">
+        <div className="mb-4 flex items-center gap-4 sm:gap-6">
+          <PixelTransition
+            className="h-32 w-32 shrink-0 rounded-full border-2 border-border bg-card text-foreground shadow-sm sm:h-40 sm:w-40"
+            firstContent={
+              <Image
+                src={profile.avatar}
+                alt={profile.name}
+                width={160}
+                height={160}
+                priority
+                className="h-full w-full rounded-full object-cover"
               />
+            }
+            secondContent={
+              <Image
+                src="/placeholder.svg"
+                alt={profile.name}
+                width={160}
+                height={160}
+                className="h-full w-full bg-muted object-cover"
+              />
+            }
+            pixelColor="#ffffff"
+            gridSize={12}
+          />
+
+          <div className="flex flex-col justify-center gap-2.5 sm:gap-3">
+            <h1 className="flex flex-wrap items-center gap-2 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+              {profile.name}
+              {profile.verified && (
+                <HugeiconsIcon
+                  icon={CheckmarkBadge01Icon}
+                  aria-label="Verified"
+                  className="h-6 w-6 shrink-0 text-brand"
+                />
+              )}
+            </h1>
+            <div className="flex items-start gap-3">
+              {profile.socials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={social.name}
+                  aria-label={social.name}
+                  className="rounded-sm text-xl text-muted-foreground opacity-70 outline-none transition-all hover:-translate-y-0.5 hover:text-foreground hover:opacity-100 focus-visible:ring-2 focus-visible:ring-ring/50"
+                >
+                  <HugeiconsIcon icon={social.icon} />
+                </a>
+              ))}
             </div>
-            <span className="text-sm">Scroll to explore</span>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
+
+        <div className="space-y-5 sm:space-y-6">
+          <h2 className="text-3xl font-normal leading-tight tracking-tight text-foreground md:text-4xl">
+            {headlineMain}{' '}
+            {headlineRest && (
+              <span className="font-light text-muted-foreground">— {headlineRest}</span>
+            )}
+          </h2>
+
+          <p className="max-full text-base font-light leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+            {renderBio(profile.bio)}
+          </p>
+
+          <a
+            href={profile.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-lg bg-foreground px-6 py-3 text-base font-medium text-background outline-none transition-transform hover:scale-105 focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            View Resume
+            <HugeiconsIcon
+              icon={ChevronRightIcon}
+              className="h-4 w-4 transition-transform group-hover:translate-x-1"
+            />
+          </a>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

@@ -1,86 +1,74 @@
-"use client";
+import { ChevronRightIcon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import Link from 'next/link';
+import { experiences } from '@/data';
+import { SectionHeading } from '@/components/section-heading';
 
-import { motion } from "motion/react";
-import { Badge } from "@/components/ui/badge";
-import { useSectionInView } from "@/hooks/use-section-in-view";
-import { experiences } from "@/lib/data";
-import ExperienceItem from "../experience-item";
+export function Experience() {
+  return (
+    <section id="experience" className="scroll-mt-20 space-y-6">
+      <div className="flex items-center justify-between">
+        <SectionHeading>Experience</SectionHeading>
+        <Link
+          href="/experience"
+          className="group inline-flex items-center gap-1 text-sm text-subtle-foreground transition-colors hover:text-foreground"
+        >
+          <span>View Details</span>
+          <HugeiconsIcon
+            icon={ChevronRightIcon}
+            aria-hidden
+            className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+          />
+        </Link>
+      </div>
+      <div className="space-y-7 sm:space-y-8">
+        {experiences.map((exp) => (
+          <div key={`${exp.company}-${exp.period}`} className="sm:flex sm:gap-6">
+            <p className="mb-1 shrink-0 whitespace-nowrap text-xs font-medium text-subtle-foreground sm:mb-0 sm:w-40 sm:pt-1">
+              {exp.period}
+            </p>
+            <div className="min-w-0">
+              <h3 className="text-base font-semibold leading-tight text-foreground sm:text-lg">
+                {exp.title}
+              </h3>
+              <p className="mt-1 text-sm font-medium text-foreground/80">{exp.company}</p>
+              {exp.location && (
+                <p className="mt-0.5 text-sm text-muted-foreground">{exp.location}</p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 
-export default function Experience() {
-  const { ref } = useSectionInView("experience", 0.5);
+export function ExperienceTimeline() {
+  const last = experiences.length - 1;
 
   return (
-    <motion.section
-      ref={ref}
-      id="experience"
-      className="relative py-20 px-6"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
-      <div className="max-w-3xl mx-auto">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <Badge variant="secondary" className="mb-4">
-              Experience
-            </Badge>
-          </motion.div>
-
-          <motion.h2
-            className="text-4xl sm:text-5xl font-bold tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Professional Journey
-          </motion.h2>
-
-          <motion.p
-            className="text-muted-foreground mt-2 sm:mt-4 text-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            A timeline of my professional growth and key achievements
-          </motion.p>
-        </motion.div>
-
-        {/* Timeline */}
-        <motion.div
-          className="relative"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          {experiences.map((experience, index) => (
-            <motion.div
-              key={experience.description}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <ExperienceItem {...experience} />
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </motion.section>
+    <div>
+      {experiences.map((exp, index) => (
+        <div key={`${exp.company}-${exp.period}`} className="relative flex gap-5 sm:gap-6">
+          <div className="relative flex flex-col items-center">
+            <span className="z-10 mt-1.5 h-3 w-3 shrink-0 rounded-full bg-foreground ring-4 ring-background" />
+            {index !== last && <span className="w-px flex-1 bg-border" />}
+          </div>
+          <div className={`flex-1 ${index === last ? 'pb-0' : 'pb-10'}`}>
+            <p className="text-xs font-medium text-subtle-foreground">{exp.period}</p>
+            <h3 className="mt-1 text-base font-semibold leading-tight text-foreground sm:text-lg">
+              {exp.title}
+            </h3>
+            <p className="mt-1 text-sm font-medium text-foreground/80">{exp.company}</p>
+            {exp.location && <p className="mt-0.5 text-sm text-muted-foreground">{exp.location}</p>}
+            <ul className="mt-3 max-w-xl list-outside list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-muted-foreground">
+              {exp.description.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
