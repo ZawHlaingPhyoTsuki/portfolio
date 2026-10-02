@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import { PageHeader } from '@/components/page-header';
 import { TechStackCategories } from '@/components/sections/tech-stack';
 import { FadeUp } from '@/components/motion/fade-up';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Tech Stack | Zaw Hlaing Phyo',
-  description: 'Languages, frameworks, databases, and tools I build with.',
-};
+export const metadata: Metadata = pageMeta(
+  'Tech Stack | Zaw Hlaing Phyo',
+  'Languages, frameworks, databases, and tools I build with.',
+  '/tech-stack',
+);
 
 export default function TechStackPage() {
   return (

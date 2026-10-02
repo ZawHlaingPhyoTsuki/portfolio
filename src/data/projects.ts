@@ -66,7 +66,7 @@ export const projects: Project[] = [
     description: 'This portfolio, built with Next.js, shadcn UI, and Motion.',
     image: '/projects/portfolio.png',
     technologies: ['Next.js', 'shadcn/ui', 'Motion'],
-    liveUrl: 'https://zaw-hlaing-phyo-portfolio.vercel.app/',
+    liveUrl: 'https://www.zawhlaingphyo.dev/',
     githubUrl: 'https://github.com/ZawHlaingPhyoTsuki/portfolio',
   },
 ];
