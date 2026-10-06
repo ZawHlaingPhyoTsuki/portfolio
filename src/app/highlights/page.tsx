@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import { PageHeader } from '@/components/page-header';
 import { Highlights } from '@/components/sections/highlights';
 import { FadeUp } from '@/components/motion/fade-up';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Highlights | Zaw Hlaing Phyo',
-  description: 'Selected work, builds, and community moments from my journey in tech.',
-};
+export const metadata: Metadata = pageMeta(
+  'Highlights | Zaw Hlaing Phyo',
+  'Selected work, builds, and community moments from my journey in tech.',
+  '/highlights',
+);
 
 export default function HighlightsPage() {
   return (

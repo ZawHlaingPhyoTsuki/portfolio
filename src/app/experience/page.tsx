@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import { PageHeader } from '@/components/page-header';
 import { ExperienceTimeline } from '@/components/sections/experience';
 import { FadeUp } from '@/components/motion/fade-up';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Experience | Zaw Hlaing Phyo',
-  description: "Where I've worked and what I did there.",
-};
+export const metadata: Metadata = pageMeta(
+  'Experience | Zaw Hlaing Phyo',
+  "Where I've worked and what I did there.",
+  '/experience',
+);
 
 export default function ExperiencePage() {
   return (

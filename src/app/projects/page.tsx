@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import { PageHeader } from '@/components/page-header';
 import { Projects } from '@/components/sections/projects';
 import { FadeUp } from '@/components/motion/fade-up';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Projects | Zaw Hlaing Phyo',
-  description: 'Client work, open-source builds, and experiments by Zaw Hlaing Phyo.',
-};
+export const metadata: Metadata = pageMeta(
+  'Projects | Zaw Hlaing Phyo',
+  'Client work, open-source builds, and experiments by Zaw Hlaing Phyo.',
+  '/projects',
+);
 
 export default function ProjectsPage() {
   return (
