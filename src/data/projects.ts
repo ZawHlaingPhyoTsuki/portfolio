@@ -25,6 +25,7 @@ export const projects: Project[] = [
     ],
     liveUrl: 'http://tcl-guide.vercel.app',
     githubUrl: 'https://github.com/ZawHlaingPhyoTsuki/tcl-guide',
+    caseStudyUrl: '/engineering/tcl-guide',
     featured: true,
   },
   {

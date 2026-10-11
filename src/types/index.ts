@@ -44,6 +44,7 @@ export interface Project {
   technologies: SkillName[];
   liveUrl: string;
   githubUrl: string;
+  caseStudyUrl?: string;
   featured?: boolean;
 }
 

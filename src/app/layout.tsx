@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist_Mono, Inter } from 'next/font/google';
 import './globals.css';
+import { RootProvider } from 'fumadocs-ui/provider/next';
 import { ThemeProvider } from '@/components/theme/theme-provider';
 import { Navbar } from '@/components/sections/navbar';
 import { Footer } from '@/components/sections/footer';
@@ -49,7 +50,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
       className={cn('h-full', 'antialiased', geistMono.variable, 'font-sans', inter.variable)}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-screen flex-col">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
@@ -60,11 +61,13 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           enableSystem
           disableTransitionOnChange
         >
-          <TooltipProvider>
-            <Navbar />
-            <div className="grow w-full">{children}</div>
-            <Footer />
-          </TooltipProvider>
+          <RootProvider>
+            <TooltipProvider>
+              <Navbar />
+              <div className="w-full grow">{children}</div>
+              <Footer />
+            </TooltipProvider>
+          </RootProvider>
         </ThemeProvider>
       </body>
     </html>

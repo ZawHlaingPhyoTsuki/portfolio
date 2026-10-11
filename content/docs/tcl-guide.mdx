@@ -1,0 +1,174 @@
+---
+title: TCL Guide — Building a Local Discovery Platform
+description: A full-stack case study of building a food-business discovery platform for Tachileik, Myanmar.
+---
+
+## Overview
+
+TCL Guide is a local food-business discovery platform for Tachileik, Myanmar. The product is designed to make it easier for people to find relevant places without hunting through fragmented Telegram posts, Facebook groups, and scattered social profiles.
+
+The core idea is simple: bring the information together in one searchable, browsable directory. Users can explore businesses visually on a map, browse categories, and move from a list view to place detail pages without losing context. The project is still a practical MVP, but it already captures the main problem it set out to solve: there is useful local information online, yet it is not centralized or easy to navigate.
+
+For a portfolio project, the value is not in exaggerated claims about scale. It is in turning scattered local knowledge into a usable product that can help people discover restaurants, food stalls, cafes, and nearby businesses more quickly.
+
+## Key Features
+
+The current implementation covers a few core product flows that are visible in the repository and project documentation.
+
+### Map-first place discovery
+
+The public experience centers on a map-first explorer. The project description describes a full-screen map with list synchronization, so the place list and the map stay aligned. Tapping a marker can highlight the corresponding listing, and selecting a row can pan the map to the chosen place.
+
+### Search and filtering
+
+The public browsing experience includes a search field and category-based filtering. The code and docs describe text search across place names, categories, and areas, along with visible category chips. These filters are kept in the URL so the view can be shared or bookmarked.
+
+### Place details
+
+Each place can have a details view with gallery images, category and area metadata, contact info, tags, description, and map context. The data model supports price level, notes, and flags such as halal or wifi-style labels when they are present. The details flow is treated as a first-class part of the product rather than an afterthought.
+
+### Category and area management
+
+The backend treats categories and areas as structured entities rather than free-form strings. That keeps the browsing model consistent, supports filtering, and prevents orphaned relationships from being created casually. The admin flow can create, update, and manage these entities, and it prevents deletion when an area or category is still referenced.
+
+### Administrative place management
+
+The admin experience includes publishing and hiding places, creating and editing entries, and handling photos before upload. The project description also mentions a map picker for setting coordinates and form validation to help maintain data quality.
+
+### Authentication and authorization
+
+Browsing is public, while management is restricted. The project uses Better Auth with an admin plugin, and the project documentation states that the first admin is bootstrapped from an environment variable. That separation is important because it keeps public exploration simple while protecting administrative actions.
+
+### Planned or incomplete pieces
+
+Some features are clearly documented as future work rather than confirmed in the current implementation. For example, the repo notes that the project is still evolving and that richer structured-opening-hours and reporting workflows remain in the backlog. These are described as planned rather than current product capabilities.
+
+## Technology Stack
+
+The implementation is a monorepo with separate frontend and backend applications.
+
+- Next.js powers the public web app in `apps/web` and the product interface.
+- NestJS provides the API layer in `apps/server` and organizes the backend as a modular monolith.
+- TypeScript is used across both apps for strong typing and shared development ergonomics.
+- Prisma models the database and relations, especially the `Category`, `Area`, and `Place` entities.
+- PostgreSQL is the database engine for persistent place, category, and auth data.
+- Better Auth handles authentication and admin access control.
+- shadcn/ui is used for interface primitives and forms.
+- Docker Compose is part of the deployment workflow for web + server services.
+- Turborepo coordinates the monorepo workspaces and shared scripts.
+- Vitest and Supertest are used for automated testing, including API-level checks.
+- Neon is referenced in project docs for storage and deployment-adjacent infrastructure.
+- Azure and Vercel appear in the broader project context and the portfolio data, but the current repository documentation is clearer on Docker Compose and environment-based deployment patterns than on a single production target.
+
+The safest summary is that the codebase is built around a Next.js frontend, a NestJS API, Prisma + PostgreSQL persistence, Better Auth authorization, and a monorepo toolchain centered on pnpm and Turborepo.
+
+## Architecture
+
+The architecture is intentionally split between a frontend app and a backend service.
+
+```text
++--------------------+      +-------------------------+
+| User browser       | ---> | Next.js web app        |
+| (desktop/mobile)   |      | apps/web               |
++--------------------+      +-------------------------+
+                                  |
+                                  | REST API + auth
+                                  v
+                        +-------------------------+
+                        | NestJS API              |
+                        | apps/server            |
+                        | - Places module        |
+                        | - Categories module    |
+                        | - Areas module         |
+                        | - Uploads module      |
+                        +-------------------------+
+                                  |
+                                  | Prisma ORM
+                                  v
+                        +-------------------------+
+                        | PostgreSQL database     |
+                        +-------------------------+
+                                  |
+                                  | Better Auth
+                                  v
+                        +-------------------------+
+                        | Auth + admin access     |
+                        +-------------------------+
+```
+
+This setup gives the product a clean separation of responsibilities:
+
+- the frontend is responsible for browsing and interacting with the product;
+- the backend owns business rules, validation, and data access;
+- Prisma centralizes the entity model and database layer;
+- Better Auth controls admin authentication and a protected dashboard layer.
+
+The repo structure confirms this split with a clear monorepo layout (`apps/web` and `apps/server`), and the server module organization matches the product domain: places, categories, areas, uploads, and auth.
+
+## Important Engineering Decisions
+
+### Separation between frontend and backend API
+
+The project uses a dedicated API server instead of putting all business logic directly into the Next.js app. That is a strong default for a product with admin workflows, authentication, and a persistent data model. It keeps the presentation layer simpler and isolates backend concerns like validation, authorization, and data access.
+
+The trade-off is extra operational complexity: there are now two deployable apps and a clearer need for API contract discipline. In a small but real product, though, this separation makes the app easier to reason about and easier to test.
+
+### NestJS modules for domain organization
+
+The backend is organized into modules such as `places`, `categories`, `areas`, and `uploads`. This makes the code easier to follow as the product grows. Instead of a single large application file, each domain owns its responsibilities and its routes.
+
+This improves maintainability, especially when the project expands beyond the initial directory feature set.
+
+### Prisma models for first-class domain data
+
+Categories, areas, and places are modeled directly in Prisma rather than being treated as loosely structured strings. This gives the application meaningful validation, relationship constraints, and clearer data semantics.
+
+The `Place` model includes fields for category, area, price level, tags, coordinates, and admin ownership. That is not just technical cleanliness; it directly supports the map, filtering, and admin workflows.
+
+### Public vs. admin access boundaries
+
+The project separates public browsing from admin-only management. Public visitors can search and view places, but management actions are routed through an admin-enabled auth flow. This reduces risk in a local-directory product where quality control matters.
+
+The trade-off is that the admin workflow needs careful UX and authorization rules. The project description explicitly calls out a role-based admin bootstrap path and dashboard redirect logic, which is the right shape for this kind of system.
+
+### Validation and API errors
+
+The project documentation and code pattern indicate a focus on form validation and consistent API errors. That is essential when a data model includes address, category, photo, price, and location fields. Good validation prevents bad data from reaching the database while keeping the UI understandable for admins.
+
+### Testing strategy
+
+The repo includes Vitest and e2e-style API tests in the server app, which is a sensible choice for a backend that owns business logic and permissions. This helps validate domain flows and protects the system as new features are added. The project does not appear to rely solely on manual checks.
+
+## Challenges and Lessons Learned
+
+One meaningful challenge in a local discovery platform is balancing user-friendliness with data quality. Listings often arrive as incomplete or inconsistent information, so the app needs both flexible fields and careful validation. The project addresses this by treating categories, areas, and uploads as structured concerns instead of casual text blobs.
+
+Another important engineering consideration is the admin workflow. Since the project is a place directory with public browse + private management, the system needs strong separation between public reads and privileged writes. The project’s Better Auth admin model and role-gated routes are a direct answer to that challenge.
+
+A final practical lesson is the importance of a monorepo structure in a project with both frontend and backend concerns. It allows the app to keep a clear separation between web UX and API logic without turning the repo into an unmanageable single package.
+
+The project’s code and docs suggest a thoughtful MVP approach: keep the core user flow clean, enforce structure in the data model, and expand only when the business or technical requirements justify it.
+
+## Current Status and Future Improvements
+
+The current project is already a functional local discovery MVP with a strong domain model and product direction. Based on the code and project documentation, the app supports:
+
+- map-first browsing
+- list and map synchronization
+- place detail views
+- public search and filtering
+- category and area management
+- admin place management
+- publish / hide status
+- authentication and authorization checks
+
+Planned or incomplete work remains clearly separate from the implemented feature set. Examples include richer opening-hours workflows, additional reporting or moderation flows, and other product enhancements not described as fully shipped in the current codebase.
+
+This is a good maturity point for a portfolio project: the app has a clear product purpose, a coherent architecture, and a meaningful set of shipped features without pretending to be a fully mature product with every possible optimization already built.
+
+## Links
+
+- Repository: https://github.com/ZawHlaingPhyoTsuki/tcl-guide
+- Production URL: TBD — add once a current deployment URL is confirmed.
+
+The repository is the clearest source of truth for the current implementation. If a production deployment becomes part of the project’s official setup, that URL can be updated here without changing the case-study narrative.

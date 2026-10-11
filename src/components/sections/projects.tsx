@@ -68,6 +68,18 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="mt-auto">
           <div className="mb-1 mt-1.5 h-px w-full bg-border" />
           <div className="flex min-h-9 items-center justify-end gap-3 px-2 pb-1">
+            {project.caseStudyUrl && (
+              <Link
+                href={project.caseStudyUrl}
+                className="group inline-flex items-center gap-1 rounded-sm font-mono text-2xs uppercase tracking-widest text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+              >
+                <span>Case Study</span>
+                <HugeiconsIcon
+                  icon={ArrowUpRight01Icon}
+                  className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
+              </Link>
+            )}
             <a
               href={project.liveUrl}
               target="_blank"
