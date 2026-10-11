@@ -23,8 +23,8 @@ export const projects: Project[] = [
       'Turborepo',
       'Supertest',
     ],
-    liveUrl: 'https://tanstack-start-firecrawl.vercel.app/',
-    githubUrl: 'https://github.com/ZawHlaingPhyoTsuki/tanstack-start-firecrawl',
+    liveUrl: 'http://tcl-guide.vercel.app',
+    githubUrl: 'https://github.com/ZawHlaingPhyoTsuki/tcl-guide',
     featured: true,
   },
   {
@@ -42,8 +42,8 @@ export const projects: Project[] = [
       'PostgreSQL',
       'BetterAuth',
     ],
-    liveUrl: 'http://tcl-guide.vercel.app',
-    githubUrl: 'https://github.com/ZawHlaingPhyoTsuki/tcl-guide',
+    liveUrl: 'https://tanstack-start-firecrawl.vercel.app/',
+    githubUrl: 'https://github.com/ZawHlaingPhyoTsuki/tanstack-start-firecrawl',
     featured: true,
   },
   {

@@ -14,11 +14,11 @@ export const highlights: Highlight[] = [
   {
     category: 'builds',
     period: 'Current build',
-    title: 'Recall: TanStack Start Firecrawl',
+    title: 'TCL Guide',
     description:
-      'Read-it-later library that scrapes URLs into clean Markdown with AI summaries and tags.',
-    image: '/projects/tanstack-start-firecrawl.png',
-    href: 'https://tanstack-start-firecrawl.vercel.app/',
+      'Local discovery platform for Tachileik, Myanmar, bringing scattered business listings into one searchable directory on Map.',
+    image: '/projects/tcl-guide1.png',
+    href: 'http://tcl-guide.vercel.app',
     hrefLabel: 'Visit site',
   },
   {

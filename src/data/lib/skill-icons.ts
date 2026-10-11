@@ -113,10 +113,7 @@ export const allSkills: SkillType[] = Object.values(skillsData).flatMap((categor
   ...category.skills,
 ]);
 
-export type SkillName =
-  (typeof skillsData)[keyof typeof skillsData]['skills'][number]['name'];
-
-export type TechnologyName = SkillName;
+export type SkillName = (typeof skillsData)[keyof typeof skillsData]['skills'][number]['name'];
 
 export const findSkill = (name: string): SkillType | undefined =>
   allSkills.find((skill) => skill.name === name);

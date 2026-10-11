@@ -2,16 +2,15 @@ import Link from 'next/link';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight01Icon } from '@hugeicons/core-free-icons';
 import { skillsData, allSkills } from '@/data/lib/skill-icons';
+import type { SkillType } from '@/data/lib/skill-icons';
 import { SectionHeading } from '@/components/section-heading';
 import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from '@/components/ui/marquee';
 import { OutlineDashedBadge } from '@/components/outline-dashed-badge';
 import { SkillIcon } from '@/components/skill-icon';
 
-type Skill = { name: string; icon?: string };
-
 const ROW_SIZE = 15;
 
-function SkillChip({ name }: Skill) {
+function SkillChip({ name }: SkillType) {
   return (
     <OutlineDashedBadge className="gap-2 px-3 py-1.5 text-sm text-muted-foreground">
       <SkillIcon name={name} />
@@ -20,7 +19,7 @@ function SkillChip({ name }: Skill) {
   );
 }
 
-function MarqueeRow({ items, reverse = false }: { items: Skill[]; reverse?: boolean }) {
+function MarqueeRow({ items, reverse = false }: { items: SkillType[]; reverse?: boolean }) {
   return (
     <Marquee>
       <MarqueeFade side="left" />
