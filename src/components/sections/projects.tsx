@@ -47,7 +47,7 @@ function ProjectCard({ project }: { project: Project }) {
 
           <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-2 pt-3">
             {project.technologies.map((tech) =>
-              findSkill(tech) ? (
+              findSkill(tech)?.icon ? (
                 <Tooltip key={tech}>
                   <TooltipTrigger>
                     <SkillIcon key={tech} name={tech} alt={tech} className="h-5" />

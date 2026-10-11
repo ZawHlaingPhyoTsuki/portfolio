@@ -2,6 +2,32 @@ import { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    title: 'TCL Guide',
+    role: 'Full-Stack Developer',
+    description:
+      'Local discovery platform for Tachileik, Myanmar, bringing scattered business listings into one searchable directory on Map',
+    image: '/projects/tcl-guide1.png',
+    technologies: [
+      'Next.js',
+      'NestJS',
+      'Prisma',
+      'shadcn UI',
+      'PostgreSQL',
+      'BetterAuth',
+      'Docker',
+      'Vitest',
+      'Azure',
+      'Vercel',
+      'Oxc',
+      'Neon',
+      'Turborepo',
+      'Supertest',
+    ],
+    liveUrl: 'https://tanstack-start-firecrawl.vercel.app/',
+    githubUrl: 'https://github.com/ZawHlaingPhyoTsuki/tanstack-start-firecrawl',
+    featured: true,
+  },
+  {
     title: 'Recall: TanStack Start Firecrawl',
     role: 'Full-Stack Developer',
     description:
@@ -12,12 +38,12 @@ export const projects: Project[] = [
       'Firecrawl',
       'Vercel AI SDK',
       'Prisma',
-      'shadcn/ui',
+      'shadcn UI',
       'PostgreSQL',
       'BetterAuth',
     ],
-    liveUrl: 'https://tanstack-start-firecrawl.vercel.app/',
-    githubUrl: 'https://github.com/ZawHlaingPhyoTsuki/tanstack-start-firecrawl',
+    liveUrl: 'http://tcl-guide.vercel.app',
+    githubUrl: 'https://github.com/ZawHlaingPhyoTsuki/tcl-guide',
     featured: true,
   },
   {
@@ -29,7 +55,7 @@ export const projects: Project[] = [
     technologies: [
       'Next.js',
       'Prisma',
-      'shadcn/ui',
+      'shadcn UI',
       'TanStack Query',
       'Zod',
       'Vitest',
@@ -65,7 +91,7 @@ export const projects: Project[] = [
     role: 'Developer',
     description: 'This portfolio, built with Next.js, shadcn UI, and Motion.',
     image: '/projects/portfolio.png',
-    technologies: ['Next.js', 'shadcn/ui', 'Motion'],
+    technologies: ['Next.js', 'shadcn UI', 'Motion'],
     liveUrl: 'https://www.zawhlaingphyo.dev/',
     githubUrl: 'https://github.com/ZawHlaingPhyoTsuki/portfolio',
   },

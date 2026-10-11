@@ -1,3 +1,4 @@
+import type { TechnologyName } from '@/data/lib/skill-icons';
 import type { IconSvgElement } from '@hugeicons/react';
 
 export interface NavLink {
@@ -40,7 +41,7 @@ export interface Project {
   role: string;
   description: string;
   image: string;
-  technologies: string[];
+  technologies: TechnologyName[];
   liveUrl: string;
   githubUrl: string;
   featured?: boolean;

@@ -12,7 +12,7 @@ export function SkillIcon({
   className?: string;
 }) {
   const skill = findSkill(name);
-  if (!skill) return null;
+  if (!skill?.icon) return null;
 
   const classes = cn('h-4 w-auto object-contain shrink-0', className);
 

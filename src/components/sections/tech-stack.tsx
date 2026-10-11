@@ -7,7 +7,7 @@ import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from '@/components/
 import { OutlineDashedBadge } from '@/components/outline-dashed-badge';
 import { SkillIcon } from '@/components/skill-icon';
 
-type Skill = { name: string; icon: string };
+type Skill = { name: string; icon?: string };
 
 const ROW_SIZE = 15;
 

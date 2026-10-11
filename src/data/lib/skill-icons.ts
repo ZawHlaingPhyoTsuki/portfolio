@@ -1,23 +1,23 @@
-type SkillType = {
+export type SkillType = {
   name: string;
-  icon: string;
+  icon?: string;
   iconDark?: string;
 };
 
 type SkillCategory = {
   title: string;
   description: string;
-  skills: SkillType[];
+  skills: readonly SkillType[];
 };
 
 type Skills = {
-  frontend: SkillCategory;
-  backend: SkillCategory;
-  databases: SkillCategory;
-  tools: SkillCategory;
+  readonly frontend: SkillCategory;
+  readonly backend: SkillCategory;
+  readonly databases: SkillCategory;
+  readonly tools: SkillCategory;
 };
 
-export const skillsData: Skills = {
+export const skillsData = {
   frontend: {
     title: 'Frontend',
     description: 'Languages, frameworks, and libraries for the client side',
@@ -91,15 +91,32 @@ export const skillsData: Skills = {
         icon: '/skills/ai-sdk-logotype-light.svg',
         iconDark: '/skills/ai-sdk-logotype-dark.svg',
       },
+      { name: 'Supertest' },
+      { name: 'Azure', icon: '/skills/Azure.svg' },
+      { name: 'Vercel', icon: '/skills/Vercel.svg' },
+      {
+        name: 'Oxc',
+        icon: '/skills/Oxc-Light.svg',
+        iconDark: '/skills/Oxc-Dark.svg',
+      },
+      {
+        name: 'Neon',
+        icon: '/skills/neon-logomark-light-color.svg',
+        iconDark: '/skills/neon-logomark-dark-color.svg',
+      },
+      { name: 'Turborepo', icon: '/skills/turborepo-icon.svg' },
     ],
   },
-};
+} as const satisfies Skills;
 
-export const allSkills: SkillType[] = Object.values(skillsData).flatMap(
-  (category) => category.skills,
-);
+export const allSkills: SkillType[] = Object.values(skillsData).flatMap((category) => [
+  ...category.skills,
+]);
 
-const normalize = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
+export type SkillName =
+  (typeof skillsData)[keyof typeof skillsData]['skills'][number]['name'];
+
+export type TechnologyName = SkillName;
 
 export const findSkill = (name: string): SkillType | undefined =>
-  allSkills.find((skill) => normalize(skill.name) === normalize(name));
+  allSkills.find((skill) => skill.name === name);
