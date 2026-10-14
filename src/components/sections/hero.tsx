@@ -50,7 +50,7 @@ export function Hero() {
             }
             secondContent={
               <Image
-                src="/placeholder.svg"
+                src="/pf1.jpeg"
                 alt={profile.name}
                 width={160}
                 height={160}
