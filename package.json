@@ -42,5 +42,12 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "oxfmt --fix",
+      "oxlint --fix",
+      "tsc --noEmit"
+    ]
+  },
   "packageManager": "pnpm@12.8.1"
 }

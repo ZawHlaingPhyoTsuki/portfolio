@@ -1,1 +1,13 @@
-pnpm format && pnpm lint
+#!/usr/bin/env bash
+
+# Run formatter
+pnpm format:fix
+
+# Run linter (auto-fix where possible)
+pnpm lint:fix
+
+# Run type check
+pnpm check-types
+
+# Stage any auto-fixed files
+git add .
