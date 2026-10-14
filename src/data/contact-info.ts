@@ -14,8 +14,8 @@ export const contactInfo: ContactMethod[] = [
   //   icon: PhoneIcon,
   //   title: 'Phone',
   //   description: 'Prefer to chat? Give me a call Monday to Friday, 9 AM to 5 PM.',
-  //   value: '+66 99 397 0485',
-  //   href: 'tel:+66993970485',
+  //   value: '+66 99 397 0422',
+  //   href: 'tel:+0993970422',
   // },
   {
     icon: Location01Icon,

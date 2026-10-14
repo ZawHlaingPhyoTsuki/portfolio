@@ -42,7 +42,7 @@ const personJsonLd = {
   knowsAbout: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Node.js'],
 };
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"

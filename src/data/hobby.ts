@@ -2,7 +2,7 @@ import { Hobby } from '@/types';
 
 export const hobby: Hobby = {
   content:
-    'Outside of coding, I spend my free time watching Anime, reading Manga and Light Novels, and listening to Anime and Japanese music. They are my favorite ways to relax and recharge.',
+    'Living across the worlds of anime, manga, and light novels is what makes me feel alive. I enjoy immersing myself in the stories and characters, whether it’s through watching anime, reading manga, or exploring light novels.',
   tags: ['Anime', 'Reading', 'Music'],
 };
 
